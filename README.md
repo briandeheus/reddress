@@ -44,6 +44,7 @@ let walker2 = matrix.getWalker(0, 0);
 
 walker.set('foo');
 walker2.value // 🐱 <== stale
+walker.value // 'foo' <== not stale
 
 matrix.find(0, 0); //foo
 matrix.set('bar', 0, 0);
