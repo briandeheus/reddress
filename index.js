@@ -55,6 +55,27 @@ class RedDressWalker {
         return this[parentS].find(moveX, moveY);
 
     }
+
+    /**
+     * Set cell value
+     * @param value
+     */
+    set (value) {
+
+        this.value = value;
+        this[parentS].set(value, this[xS], this[yS]);
+
+    }
+
+    /**
+     * Get the current position
+     * @returns {*[]}
+     */
+
+    getPosition () {
+        return [this[xS], this[yS]]
+    }
+
 }
 
 class RedDress {
@@ -86,6 +107,14 @@ class RedDress {
      * @private
      */
     __check_bounds (x, y) {
+
+        if (isNaN(x) === true) {
+            throw new Error('x is not a number');
+        }
+
+        if (isNaN(y) === true) {
+            throw new Error('y is not a number');
+        }
 
         if (x > this.rows - 1 || x < 0) {
             throw new BoundError('Row is out of bounds');
@@ -125,7 +154,7 @@ class RedDress {
      *
      * @param matrix
      */
-    bulkAdd (matrix) {
+    bulkSet (matrix) {
 
         for (var i = 0, l = matrix.length; i < l; i += 1) {
 

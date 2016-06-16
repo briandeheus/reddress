@@ -6,9 +6,10 @@ let BoundError = redDress.BoundError;
 describe('Red Dress', () => {
 
     let matrix;
+    let matrixBulk;
+
     let walker;
 
-    let matrixBulk;
 
     it('Creates a new matrix', () =>{
         matrix = new RedDress(3, 3);
@@ -106,7 +107,7 @@ describe('Red Dress', () => {
     it('Bulk creates a matrix', () => {
 
         matrixBulk = new RedDress(3, 3);
-        matrixBulk.bulkAdd([
+        matrixBulk.bulkSet([
             ['0,0', '0,1', '0,2'],
             ['1,0', '1,1', '1,2'],
             ['2,0', '2,1', '2,2']
@@ -125,6 +126,18 @@ describe('Red Dress', () => {
         assert.equal(matrixBulk.find(0, 2), '0,2');
         assert.equal(matrixBulk.find(1, 2), '1,2');
         assert.equal(matrixBulk.find(2, 2), '2,2');
+
+    });
+
+    it('Updates values using a walker', () => {
+
+        const [x, y] = walker.getPosition();
+
+        walker.set('foo');
+        assert.equal(x, 0);
+        assert.equal(y, 0);
+
+        assert.equal(matrix.find(x, y), 'foo');
 
     });
 
