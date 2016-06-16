@@ -1,4 +1,4 @@
-# reddress
+# Red Dress
 Tiny ES6 Matrix Library
 
 ## How to use
