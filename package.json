@@ -1,0 +1,22 @@
+{
+  "name": "reddress",
+  "version": "0.0.0",
+  "description": "Tiny ES6 Matrix Library",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/briandeheus/reddress.git"
+  },
+  "keywords": [
+    "matrix"
+  ],
+  "author": "Brian de Heus",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/briandeheus/reddress/issues"
+  },
+  "homepage": "https://github.com/briandeheus/reddress#readme"
+}
