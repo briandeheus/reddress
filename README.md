@@ -49,7 +49,7 @@ walker.value // 'foo' <== not stale
 matrix.find(0, 0); //foo
 matrix.set('bar', 0, 0);
 
-walker.value // Is now stale. :-(
+walker.value //foo <== is now stale. :-(
 matrix.find(0, 0); //bar
 ```
 
