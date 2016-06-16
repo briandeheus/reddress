@@ -23,8 +23,10 @@ Walk around like you own the place:
 ```
 let walker = matrix.getWalker(1, 1);
 walker.value; //😍
-walker.walk(1, 1); //💩
-walker.walk(-2, -2); //🐱
+walker.walk(1, 1);
+walker.value; //💩
+walker.walk(-2, -2);
+walker.value; //🐱
 ```
 
 Look from relative positions:
