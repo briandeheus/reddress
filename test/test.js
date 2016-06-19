@@ -132,12 +132,23 @@ describe('Red Dress', () => {
     it('Updates values using a walker', () => {
 
         const [x, y] = walker.getPosition();
+        let walker2  = matrix.getWalker(x, y);
 
-        walker.set('foo');
         assert.equal(x, 0);
         assert.equal(y, 0);
 
+        assert.equal(walker2.find(x, y), x + ',' + y);
+        assert.equal(walker.value, x + ',' + y);
+
+        walker.set('foo');
+
         assert.equal(matrix.find(x, y), 'foo');
+        assert.equal(walker.find(0, 0), 'foo');
+        assert.equal(walker2.find(x, y), 'foo');
+
+        assert.equal(walker.value, 'foo');
+        assert.equal(walker2.value, 'foo');
+
 
     });
 

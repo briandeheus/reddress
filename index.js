@@ -11,13 +11,11 @@ class BoundError extends Error {}
 
 class RedDressWalker {
 
-    constructor (value, x, y, parent) {
+    constructor (x, y, parent) {
 
         this[xS]      = x;
         this[yS]      = y;
         this[parentS] = parent;
-
-        this.value = value;
 
     }
 
@@ -32,13 +30,21 @@ class RedDressWalker {
         let moveX = this[xS] + x;
         let moveY = this[yS] + y;
 
-        this.value = this[parentS].find(moveX, moveY);
+        this[parentS].__check_bounds(moveX, moveY);
 
         this[xS] = moveX;
         this[yS] = moveY;
 
         return this.value;
 
+    }
+
+    /**
+     * Get the value of the cell the walker is on.
+     * @returns {*}
+     */
+    get value () {
+        return this[parentS].find(this[xS], this[yS]);
     }
 
     /**
@@ -62,7 +68,6 @@ class RedDressWalker {
      */
     set (value) {
 
-        this.value = value;
         this[parentS].set(value, this[xS], this[yS]);
 
     }
@@ -183,7 +188,7 @@ class RedDress {
         this[matrix][position] = value;
 
         if (withWalker === true) {
-            return new RedDressWalker(value, x, y, this);
+            return new RedDressWalker(x, y, this);
         }
 
     }
@@ -211,7 +216,7 @@ class RedDress {
     }
 
     getWalker (initialX, initialY) {
-        return new RedDressWalker(this.find(initialX, initialY), initialX, initialY, this);
+        return new RedDressWalker(initialX, initialY, this);
     }
 
 }

@@ -43,14 +43,14 @@ let walker  = matrix.getWalker(0, 0);
 let walker2 = matrix.getWalker(0, 0);
 
 walker.set('foo');
-walker2.value // 🐱 <== stale
-walker.value // 'foo' <== not stale
+walker2.value // 'foo'
+walker.value // 'foo'
 
-matrix.find(0, 0); //foo
+matrix.find(0, 0); // 'foo'
 matrix.set('bar', 0, 0);
 
-walker.value //foo <== is now stale. :-(
-matrix.find(0, 0); //bar
+walker.value // 'bar'
+matrix.find(0, 0); // 'bar'
 ```
 
 Never leave the matrix
@@ -66,6 +66,3 @@ Never get lost again:
 let walker = matrix.getWalker(2, 2);
 const [x, y] = walker.getPosition(); //2, 2
 ```
-
-## Caveats
-Walkers are not aware of any changes in the matrix, yet.
