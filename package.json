@@ -1,6 +1,6 @@
 {
   "name": "reddress",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Tiny ES6 Matrix Library",
   "main": "index.js",
   "scripts": {
